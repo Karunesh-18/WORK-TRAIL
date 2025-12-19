@@ -6,6 +6,8 @@ const { resourceLimits } = require("worker_threads");
 const connectDB = require("./config/db");
 
 const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes");
+const taskRoutes = require("./routes/taskRoutes");
 
 const app = express();
 
@@ -26,9 +28,9 @@ app.use(express.json());
 
 //Routes
 app.use("/api/auth", require("./routes/authRoutes"));
-// app.use("//api/tasks", require("./routes/taskRoutes"));
-// app.use("/api/users", require("./routes/userRoutes"));
-// app.use("/api/reports", require("./routes/reportRoutes"));
+app.use("/api/users", require("./routes/userRoutes"));
+app.use("/api/tasks", require("./routes/taskRoutes"));
+app.use("/api/reports", require("./routes/reportRoutes"));
 
 //Start Server
 const PORT = process.env.PORT || 5000;

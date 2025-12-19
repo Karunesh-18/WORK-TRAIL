@@ -15,10 +15,10 @@ const taskSchema = new mongoose.Schema(
         assignedTo: [{type: mongoose.Schema.Types.ObjectId, ref: "User"}],
         createdBy: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
         attatchments: [{type: String}],
-        todos: [todoSchema],
+        todoChecklist: [todoSchema],
         progress: {type: String}
     },
     {timestamps: true}
 );
 
-module.exports = moongoose.model("Task", taskSchema)
+module.exports = mongoose.model("Task", taskSchema)

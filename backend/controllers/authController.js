@@ -7,7 +7,7 @@ const generateToken = (userId) => {
 }
 
 
-// Register User - api/auth/register
+// Register User - api/auth/register - Put
 const registerUser = async (req, res) => {
     try{
         const {name, email, password, profileImageUrl, adminInviteToken} = req.body;
@@ -47,7 +47,7 @@ const registerUser = async (req, res) => {
     }
 }
 
-// Login User - api/auth/login
+// Login User - api/auth/login - Put
 const loginUser = async (req, res) => {
     try{
         const {email, password} = req.body;
@@ -75,7 +75,7 @@ const loginUser = async (req, res) => {
     }
 }
 
-// Get User Profile - api/auth/profile
+// Get User Profile - api/auth/profile - Put
 const getUserProfile = async (req, res) => {
     try{
         const user = await User.findById(req.user.id).select("-password")
@@ -89,7 +89,7 @@ const getUserProfile = async (req, res) => {
     }
 }
 
-// Update User Profile - api/auth/profile
+// Update User Profile - api/auth/profile - Put
 const updateUserProfile = async (req, res) => {
     try{
         const user = await User.findById(req.user.id)
@@ -123,9 +123,4 @@ const updateUserProfile = async (req, res) => {
 }
 
 
-module.exports = {
-    registerUser,
-    loginUser,
-    getUserProfile,
-    updateUserProfile
-}
+module.exports = { registerUser, loginUser, getUserProfile, updateUserProfile }
